@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" th:href="@{https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css}">
+    <style>
+
+        <!--/* 由于不懂前端，于是就去网上搜了下如何将文字置于页面中间，并作略微调整。*/-->
+        .toCenter {
+            text-align: center; /*让div内部文字居中*/
+            border-radius: 20px;
+            width: 500px;
+            height: 300px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="toCenter">
+    <h1 align="center">欢迎登录武林秘籍管理系统</h1>
+    <br>
+    <div class="container">
+        <h3 th:text="${msg}" style="color: red"></h3>
+        <form class="form-horizontal" th:action="@{/loginForm}" method="post">
+            <div class="row form-group">
+                <span class="col-md-offset-3"></span>
+                <label class=" col-sm-2 col-md-2 control-label" style="text-align: right">用户名</label>
+                <div class="col-sm-6 col-md-6">
+                    <input type="text" class="form-control"  name="username" placeholder="用户名">
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-sm-2 col-md-2 control-label" style="text-align: right">密码</label>
+                <div class="col-sm-6 col-md-6">
+                    <input type="password" class="form-control" name="password" placeholder="密码">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="rememberme" value="yes"> Remember me
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-offset-3 col-sm-6">
+                    <button type="submit" class="btn btn-success" value="登录">登录</button>
+                    <button type="reset" class="btn btn-warning" value="重置">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

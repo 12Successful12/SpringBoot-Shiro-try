@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎页面</title>
+    <style>
+
+        <!--/* 由于不懂前端，于是就去网上搜了下如何将文字置于页面中间，并作略微调整。*/-->
+        .toCenter {
+            text-align: center; /*让div内部文字居中*/
+            border-radius: 20px;
+            width: 500px;
+            height: 250px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="toCenter">
+    <h1 align="center">欢迎使用武林秘籍管理系统</h1>
+    <h2 align="center">游客您好，如果想查看武林秘籍，<a th:href="@{/login}"> 请登录 </a> </h2>
+</div>
+
+</body>
+</html>

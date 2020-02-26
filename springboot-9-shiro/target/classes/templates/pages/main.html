@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.w3.org/1999/xhtml">
+<!--xmlns:shiro="http://www.w3.org/1999/xhtml"-->
+<!--<html xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">-->
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" th:href="@{https://cdn.bootcss.com/twitter-bootstrap/4.4.1/css/bootstrap.min.css}">
+    <style type="text/css">
+        .center-block {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<h1 align="center">欢迎使用武林秘籍管理系统</h1>
+<h2 align="center"> <span shiro:principal="">游客</span>，您好！ <a href="#" th:href="@{/logout}">退出登录</a></h2>
+    <br>
+    <shiro:hasAnyRoles name="level1,level2,level3">
+        <div class="row">
+            <div class="list-group  col-md-offset-5 col-md-4 center-block" style="text-align: center">
+                <h3 style="color: green">（Level1）普通武林秘籍</h3>
+                <a href="#" th:href="@{/level1/1}" class="list-group-item">罗汉拳</a>
+                <a href="#" th:href="@{/level1/2}" class="list-group-item">武当长拳</a>
+                <a href="#" th:href="@{/level1/3}" class="list-group-item">全真剑法</a>
+            </div>
+        </div>
+    </shiro:hasAnyRoles>
+    <br>
+    <shiro:hasAnyRoles name="level2,level3">
+        <div class="row">
+            <div class="list-group  col-md-offset-5 col-md-4 center-block" style="text-align: center">
+                <h3 style="color: blue">（Level2）高级武林秘籍</h3>
+                <a href="#" th:href="@{/level2/1}" class="list-group-item">太极拳</a>
+                <a href="#" th:href="@{/level2/2}" class="list-group-item">七伤拳</a>
+                <a href="#" th:href="@{/level2/3}" class="list-group-item">梯云纵</a>
+            </div>
+        </div>
+    </shiro:hasAnyRoles>
+    <br>
+    <shiro:hasAnyRoles name="level3">
+        <div class="row">
+            <div class="list-group  col-md-offset-5 col-md-4 center-block" style="text-align: center">
+                <h3 style="color: red">（Level3）绝世武林秘籍</h3>
+                <a href="#" th:href="@{/level3/1}" class="list-group-item">葵花宝典</a>
+                <a href="#" th:href="@{/level3/2}" class="list-group-item">龟派气功</a>
+                <a href="#" th:href="@{/level3/3}" class="list-group-item">独孤九剑</a>
+            </div>
+        </div>
+    </shiro:hasAnyRoles>
+</div>
+
+<script th:src="@{https://cdn.bootcss.com/twitter-bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

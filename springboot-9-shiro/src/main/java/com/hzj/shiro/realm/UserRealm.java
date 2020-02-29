@@ -20,9 +20,12 @@ public class UserRealm extends AuthorizingRealm {
         String principal = (String) currentUser.getPrincipal();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         if("admin".equals(principal)) {
+            info.addRole("level1");
+            info.addRole("level2");
             info.addRole("level3");
         }
         if("manager".equals(principal)) {
+            info.addRole("level1");
             info.addRole("level2");
         }
         if("employee".equals(principal)) {
